@@ -1,0 +1,22 @@
+<div class="news-page-title">News</div>
+
+<div style="width: 100%">
+
+        <div fxLayout="column">
+            <div *ngFor="let news of getNews()">
+                <div class="news-page-entry">
+                    <div class="news-page-entry-title">
+                        <div>
+                            <a target="_blank" href="{{news.url}}">
+                                <mat-icon>open_in_new</mat-icon>
+                            </a>
+                            {{news.title}}
+                        </div>
+                    </div>
+                    <div class="news-page-entry-source">Quelle: {{news.source}}</div>
+                    <div class="news-page-entry-foundat">Gefunden am: {{news.foundat | date: 'medium'}}</div>
+                </div>
+            </div>
+        </div>
+</div>
+

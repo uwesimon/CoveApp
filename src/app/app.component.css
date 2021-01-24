@@ -1,0 +1,14 @@
+.mat-toolbar{
+  height: 50px;
+}
+
+.mat-drawer-content {
+    margin-right: 0px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+}
+
+.mat-drawer-container{
+    height: calc(100% - 70px);
+}

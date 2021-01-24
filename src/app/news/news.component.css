@@ -1,0 +1,32 @@
+.news-page-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.news-page-entry{
+   border-style: solid;
+   border-width: 1px;
+   width: 100%;
+}
+
+.news-page-entry-title{
+    font-weight: bold;
+}
+
+.news-page-entry-title{
+}
+
+.news-page-entry-source{
+}
+
+.news-page-entry-foundat{
+}
+
+.news-viewport {
+    height: 400px;
+    border: 1px solid black;
+  }
+
+.news-item {
+    height: 50px;
+}

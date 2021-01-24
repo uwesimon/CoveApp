@@ -1,0 +1,8 @@
+    web:
+      build: ./
+      ports:
+       - "8080:80"
+       - "8443:443"
+      environment:
+        - NGINX_HOST=linux6.fritz.box
+

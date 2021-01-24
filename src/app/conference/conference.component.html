@@ -1,0 +1,60 @@
+<div>
+  <div class="toolbar" fxLayout="row">
+    <div class="border">
+      <mat-form-field>
+        <mat-select [(value)]="webcamResolution">
+          <mat-option *ngFor="let resolution of webcamResolutions; index as i" [value]="i">
+            {{resolution.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="border">
+      <button mat-icon-button [ngClass]="{'red-icon' : showWebcam}" (click)="toggleWebcam();">
+        <mat-icon>{{showWebcam?'videocam':'videocam_off'}}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="toggleMirror();" *ngIf="showWebcam">
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+      <mat-form-field *ngIf="showWebcam">
+        <mat-select [(value)]="localVideoFilter">
+          <mat-option value="none">Kein Filter</mat-option>
+          <mat-option value="invert">Invers</mat-option>
+          <mat-option value="grayscale">Schwarzweiß</mat-option>
+          <mat-option value="blur">Blur</mat-option>
+          <mat-option value="sepia">Sepia</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="border">
+      <button mat-icon-button [ngClass]="{'red-icon' : micOn}" (click)="toggleMic();">
+        <mat-icon>{{micOn?'mic':'mic_off'}}</mat-icon>
+      </button>
+      <mat-slider *ngIf="micOn" min="1" max="100" step="5" value="50"></mat-slider>
+    </div>
+    <div class="border">
+      <button mat-icon-button [ngClass]="{'red-icon' : speakerOn}" (click)="toggleSpeaker();">
+        <mat-icon>{{speakerOn?'volume_mute':'volume_off'}}</mat-icon>
+      </button>
+      <mat-slider *ngIf="speakerOn" min="1" max="100" step="5" value="50"></mat-slider>
+    </div>
+
+    <div class="border">
+      <button mat-icon-button [ngClass]="{'red-icon' : screenShare}" (click)='toggleScreenShare()'>
+        <mat-icon>{{screenShare?'screen_share':'stop_screen_share'}}</mat-icon>
+      </button>
+    </div>
+    <hr />
+  </div>
+  <div>
+    <div fxLayout="row" fxLayout.lt-md="column">
+      <div>
+        <video #localVideo playsinline autoplay [ngClass]="localVideoFilter" [ngStyle]="mirrorWebcam ? {'transform': 'rotateY(180deg)'}: ''">Local
+          video</video>
+        <video #remoteVideo playsinline autoplay>Remote video</video>
+        <video #remoteScreen playsinline autoplay>Remote screen</video>
+      </div>
+    </div>
+  </div>
+</div>
